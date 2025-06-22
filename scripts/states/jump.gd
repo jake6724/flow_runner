@@ -1,8 +1,6 @@
 class_name Jump
 extends State
 
-var jump_power: int = 350
-
 func init_state():
 	animation_1 = "jump"
 	animation_2 = "double_jump"
@@ -16,7 +14,7 @@ func jump():
 		if player.jump_count == 0: player.ap.play(animation_1) 
 		else: player.ap.play(animation_2)
 
-		player.velocity.y = -jump_power
+		player.velocity.y = -player.jump_power
 		player.jump_count += 1
 		player.jump_in_progress = false
 

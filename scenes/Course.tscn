@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmqxetjxn36be"]
+
+[ext_resource type="Script" uid="uid://lv77a8id7yq4" path="res://scripts/course.gd" id="1_g1onc"]
+
+[node name="Course" type="Node2D"]
+script = ExtResource("1_g1onc")
+metadata/_custom_type_script = "uid://lv77a8id7yq4"
