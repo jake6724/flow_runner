@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dggg4mes8sfux"]
+
+[ext_resource type="Texture2D" uid="uid://qtf8e86fh5g" path="res://assets/obstacle.png" id="1_jde5u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qf6v3"]
+size = Vector2(42, 63.4871)
+
+[node name="Obstacle" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(17.68, 1.00808)
+shape = SubResource("RectangleShape2D_qf6v3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(11.6316, 1)
+texture = ExtResource("1_jde5u")

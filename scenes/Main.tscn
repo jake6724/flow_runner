@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dllle5ijhc8mf"]
+
+[ext_resource type="PackedScene" uid="uid://dj0rg3fl0x4jp" path="res://scenes/Player.tscn" id="1_elqb8"]
+[ext_resource type="PackedScene" uid="uid://f2rlba0ip81m" path="res://scenes/DebugCamera.tscn" id="2_rvslj"]
+[ext_resource type="Texture2D" uid="uid://23ncrnc6q65o" path="res://assets/grid-1920-x-1080-picture-b2qbbb0cef1l59ah.jpg" id="3_0bbpv"]
+[ext_resource type="PackedScene" uid="uid://dggg4mes8sfux" path="res://scenes/Obstacle.tscn" id="4_rarhs"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_elqb8")]
+position = Vector2(966, 504)
+
+[node name="DebugCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_rvslj")]
+position = Vector2(966, 498)
+zoom = Vector2(3.185, 3.185)
+player = NodePath("../Player")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1000
+texture_filter = 1
+offset_top = -1.0
+offset_right = 1920.0
+offset_bottom = 1079.0
+texture = ExtResource("3_0bbpv")
+
+[node name="Obstacle" parent="." instance=ExtResource("4_rarhs")]
+position = Vector2(1034, 611)
