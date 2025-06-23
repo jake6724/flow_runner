@@ -16,6 +16,7 @@ func jump():
 
 		player.velocity.y = -player.jump_power
 		player.jump_count += 1
+		# player.jump_power /= 2
 		player.jump_in_progress = false
 
 func process_state(_delta):

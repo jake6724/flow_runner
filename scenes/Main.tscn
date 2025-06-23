@@ -25,9 +25,9 @@ offset_right = 1920.0
 offset_bottom = 1079.0
 texture = ExtResource("3_0bbpv")
 
+[node name="Ground" parent="." instance=ExtResource("5_c01mt")]
+z_index = -1
+
 [node name="Course" parent="." node_paths=PackedStringArray("player", "ground") instance=ExtResource("5_vcsgt")]
 player = NodePath("../Player")
 ground = NodePath("../Ground")
-
-[node name="Ground" parent="." instance=ExtResource("5_c01mt")]
-z_index = -1
