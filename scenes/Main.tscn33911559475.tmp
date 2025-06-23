@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dllle5ijhc8mf"]
+[gd_scene load_steps=7 format=3 uid="uid://dllle5ijhc8mf"]
 
 [ext_resource type="PackedScene" uid="uid://dj0rg3fl0x4jp" path="res://scenes/Player.tscn" id="1_elqb8"]
 [ext_resource type="PackedScene" uid="uid://f2rlba0ip81m" path="res://scenes/DebugCamera.tscn" id="2_rvslj"]
 [ext_resource type="Texture2D" uid="uid://23ncrnc6q65o" path="res://assets/grid-1920-x-1080-picture-b2qbbb0cef1l59ah.jpg" id="3_0bbpv"]
-[ext_resource type="PackedScene" uid="uid://bwo2lc0r5ndf8" path="res://scenes/Ground.tscn" id="5_c01mt"]
 [ext_resource type="PackedScene" uid="uid://cmqxetjxn36be" path="res://scenes/Course.tscn" id="5_vcsgt"]
+[ext_resource type="Texture2D" uid="uid://qtf8e86fh5g" path="res://assets/obstacle.png" id="6_c01mt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxtc6"]
+size = Vector2(1920, 18)
 
 [node name="Main" type="Node2D"]
 
@@ -25,9 +28,19 @@ offset_right = 1920.0
 offset_bottom = 1079.0
 texture = ExtResource("3_0bbpv")
 
-[node name="Course" parent="." node_paths=PackedStringArray("player", "ground") instance=ExtResource("5_vcsgt")]
+[node name="Course" parent="." node_paths=PackedStringArray("player", "floor") instance=ExtResource("5_vcsgt")]
 player = NodePath("../Player")
-ground = NodePath("../Ground")
+floor = NodePath("../StaticBody2D")
 
-[node name="Ground" parent="." instance=ExtResource("5_c01mt")]
-z_index = -1
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(960, 584)
+scale = Vector2(1, 0.87998)
+shape = SubResource("RectangleShape2D_nxtc6")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(960, 584)
+rotation = 3.14159
+scale = Vector2(29.9969, 0.248593)
+texture = ExtResource("6_c01mt")
